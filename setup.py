@@ -20,7 +20,7 @@ setup(
     author_email="raj.katuwal2061@gmail.com",
     url="https://github.com/Rajendra-Katuwal/bsdatetime",
     project_urls={
-        "Documentation": "https://Rajendra-Katuwal.github.io/bsdatetime/",
+        "Documentation": "https://Rajendra-Katuwal.github.io/bsdatetime.docs/",
         "Source": "https://github.com/Rajendra-Katuwal/bsdatetime",
         "Issues": "https://github.com/Rajendra-Katuwal/bsdatetime/issues",
     },

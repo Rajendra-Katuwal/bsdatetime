@@ -29,6 +29,6 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://github.com/Rajendra-Katuwal/bsdatetime"  # historical repo URL retained
-Documentation = "https://Rajendra-Katuwal.github.io/bsdatetime/"
+Documentation = "https://Rajendra-Katuwal.github.io/bsdatetime.docs/"
 Issues = "https://github.com/Rajendra-Katuwal/bsdatetime/issues"
 Source = "https://github.com/Rajendra-Katuwal/bsdatetime"
