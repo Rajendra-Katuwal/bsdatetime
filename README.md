@@ -1,76 +1,46 @@
 # bsdatetime
 
-[![PyPI version](https://badge.fury.io/py/bsdatetime.svg)](https://badge.fury.io/py/bsdatetime)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Lightweight, dependency‑free Bikram Sambat (Nepali) calendar utilities for Python.
 
-Pure Python library for Bikram Sambat (Nepali) calendar date & datetime operations.
+Documentation: https://rajendra-katuwal.github.io/bsdatetime.docs/
 
-## Features
+## What it does
+* Convert between Gregorian (AD) and Bikram Sambat (BS)
+* Format / parse BS dates (localized month + weekday names)
+* Validate dates, get fiscal year, week number, ranges
+* Provide current BS date/time helpers
 
-- ✅ Convert between Gregorian (AD) and Bikram Sambat (BS) dates
-- ✅ Format and parse BS dates with localized month/weekday names
-- ✅ Comprehensive date validation and error handling  
-- ✅ Calculate fiscal years, quarters, week numbers, date ranges
-- ✅ No external dependencies - pure Python
-- ✅ Type hints and comprehensive documentation
-- ✅ Production-ready with security-focused design
-
-## Installation
-
+## Install
 ```bash
 pip install bsdatetime
 ```
 
-## Quick Usage
-
+## Quick start
 ```python
-import bsdatetime as bs  # new name
-import datetime
+import datetime, bsdatetime as bs
 
-# Convert AD to BS
-ad_date = datetime.date(2024, 12, 25)
-bs_date = bs.ad_to_bs(ad_date)
-print(bs_date)  # (2081, 9, 9)
-
-# Convert BS to AD  
-bs_date = (2081, 5, 15)
-ad_date = bs.bs_to_ad(*bs_date)
-print(ad_date)  # 2024-08-30
-
-# Format BS dates
-formatted = bs.format_bs_date(2081, 5, 15, "%B %d, %Y")
-print(formatted)  # भदौ 15, 2081
-
-# Current BS date
+ad = datetime.date(2024, 12, 25)
+bs_tuple = bs.ad_to_bs(ad)          # (2081, 9, 9)
+ad_back = bs.bs_to_ad(*bs_tuple)    # 2024-12-25
+text = bs.format_bs_date(*bs_tuple, "%B %d, %Y")  # भदौ 09, 2081
 current_bs = bs.utils.get_current_bs_date()
-print(current_bs)
 ```
 
-## API Highlights
+Core API (most used)
+* ad_to_bs(date)
+* bs_to_ad(y, m, d)
+* format_bs_date(y, m, d, fmt)
+* parse_bs_date(text, fmt)
+* is_valid_bs_date(y, m, d)
+* utils.get_current_bs_date()
 
-| Function | Description |
-|----------|-------------|
-| `ad_to_bs(date)` | Convert Gregorian to BS date tuple |
-| `bs_to_ad(y,m,d)` | Convert BS to Gregorian date |
-| `format_bs_date(y,m,d, fmt)` | Format BS date with patterns |
-| `parse_bs_date(str, fmt)` | Parse BS date from string |
-| `is_valid_bs_date(y,m,d)` | Validate BS date |
-| `utils.get_current_bs_date()` | Get current BS date |
-| `utils.get_bs_fiscal_year(y,m)` | Get fiscal year |
+Supported range: BS 1975–2100 (≈ AD 1918–2043)
 
-## Supported Range
-
-- **BS Years**: 1975 - 2100 (calendar data included)
-- **Equivalent AD**: ~1918 - ~2043
-
-## Django Integration
-
-For Django model fields, install the companion package (will be updated to depend on `bsdatetime`):
-
+## Django?
+Use the companion package for model fields:
 ```bash
-pip install django-bikram-sambat
+pip install django-bsdatetime
 ```
 
 ## License
-
 MIT
