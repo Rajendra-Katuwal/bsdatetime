@@ -6,7 +6,7 @@ README = (ROOT / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="bsdatetime",
-    version="1.1.0",
+    version="1.0.1",
     packages=find_packages(include=["bsdatetime", "bsdatetime.*", "bikram_sambat", "bikram_sambat.*"]),
     include_package_data=True,
     install_requires=[
